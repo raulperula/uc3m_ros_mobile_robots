@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- point cloud converter -->
+  <node pkg="nxt_assisted_teleop" type="range_to_pointcloud.py" name="range_to_pointcloud">
+    <remap from="range_topic" to="ultrasonic_sensor" />
+    <remap from="cloud_topic" to="point_cloud" />
+  </node>
+
+  <!-- keyboard teleop node -->
+  <node pkg="nxt_teleop" type="nxt_teleop_key" name="nxt_teleop"  output="screen">
+    <param name="scale_linear" value="1" type="double"/>
+    <param name="scale_angular" value="1" type="double"/>
+    <remap from="cmd_vel" to="teleop_cmd_vel"/>
+  </node>
+  
+  <node pkg="nxt_assisted_teleop" name="assisted_teleop" type="assisted_teleop" respawn="false" output="screen">
+    <rosparam file="$(find nxt_assisted_teleop)/launch/sensor_car/assisted_teleop.yaml" command="load" />
+  </node>
+
+</launch>

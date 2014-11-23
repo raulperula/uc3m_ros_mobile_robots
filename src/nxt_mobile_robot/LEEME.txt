@@ -1,0 +1,22 @@
+Para ejecutar:
+
+    Terminal 1:
+
+        roslaunch nxt_mobile_robot robot_prueba.launch
+
+    Terminal 2:
+
+        roslaunch nxt_mobile_robot assisted_teleop_keyboard.launch
+
+    Terminal 3:
+
+        rosrun rviz rviz
+
+En rviz hacer lo siguiente:
+
+    + Habilitar "nxt_rviz_plugins" en el menu de plugins.
+        - Añadir "NTXUltrasonicDisplay" y poner como topic "/ultrasonic_sensor".
+    + En "Global Options" poner en "Fixed Frame" a '/odom_combined" y en "Target Frame" a <Fixed Frame>.
+    + Poner el "Grid" visible.
+    + Añadir un plugin "Grid Cells" y poner como topic "assisted_teleop/costmap/obstacles".
+    + Añadir otro "Grid Cells" y poner como topic "assisted_teleop/costmap/inflated_obstacles". Cambiar el color, por ejemplo a azul.

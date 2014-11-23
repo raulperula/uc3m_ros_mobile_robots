@@ -1,0 +1,16 @@
+<package>
+  <description brief="nxt_mobile_robot">
+
+     nxt_mobile_robot
+
+  </description>
+  <author>Raul</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/nxt_mobile_robot</url>
+  <depend package="rospy"/>
+  <depend package="nxt_ros"/>
+
+</package>
+
+
